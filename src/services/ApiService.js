@@ -1,24 +1,12 @@
 import config from "../config";
 
 const ApiService = {
-  handleDogAdopted() {
-    return fetch(`${config.API_ENDPOINT}/dogs`, { method: "DELETE" }).then(
+  handlePetAdopted() {
+    return fetch(`${config.API_ENDPOINT}/pets`, { method: "DELETE" }).then(
       (res) => {
         if (!res.ok) {
           return res.json().then((e) => Promise.reject(e));
         }
-        return res.json();
-      }
-    );
-  },
-
-  handleCatAdopted() {
-    return fetch(`${config.API_ENDPOINT}/cats`, { method: "DELETE" }).then(
-      (res) => {
-        if (!res.ok) {
-          return res.json().then((e) => Promise.reject(e));
-        }
-
         return res.json();
       }
     );

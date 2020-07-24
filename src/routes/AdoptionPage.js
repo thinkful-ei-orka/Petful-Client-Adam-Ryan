@@ -34,32 +34,18 @@ I can see a list of other people currently in line.
 // if currentPerson exists = enter name box disappears
 
 import React from "react";
-import Pet from '../components/Pet';
-import AdoptionQueue from '../components/AdoptionQueue.js';
-import AddToList from '../components/AddToList';
+import Pet from "../components/Pet";
+import AdoptionQueue from "../components/AdoptionQueue.js";
+import AddToList from "../components/AddToList";
 // import { Link } from 'react-router-dom';
 // import config from "../config";
 // import Users from "../../components/Users/Users";
 import ApiService from "../services/ApiService";
 
-const handleDogAdopted = () => {
-  ApiService.handleDogAdopted()
-    .then((dogs) => {
-      this.setState({ dogs, currentDog: dogs.first });
-    })
-    .then((res) =>
-      ApiService.handleUserDelete().then((users) => {
-        this.setState({ users });
-        //   this.this.props.history.push("/");
-      })
-    )
-    .catch((error) => console.error(error));
-};
-
-const handleCatAdopted = () => {
-  ApiService.handleCatAdopted()
-    .then((cats) => {
-      this.setState({ cats, currentCat: cats.first });
+const handlePetAdopted = () => {
+  ApiService.handlePetAdopted()
+    .then((pets) => {
+      this.setState({ pets, currentCat: pets.first });
     })
     .then((res) =>
       ApiService.handleUserDelete().then((users) => {
@@ -94,14 +80,10 @@ const handleCatAdopted = () => {
 //       });
 //   }
 
-
 export default class AdoptionPage extends React.Component {
   componentDidMount() {
     this.props.getState();
   }
-  // componentDidUpdate(){
-  //   this.props.getState();
-  // }
   render() {
     return (
       <div className="AdoptionPage">
@@ -109,13 +91,21 @@ export default class AdoptionPage extends React.Component {
           <h1>Here are some available fluffballs!</h1>
         </header>
         <section>
-          <section className='AdoptionQueue'>
+          <section className="AdoptionQueue">
             <AdoptionQueue people={this.props.people} />
-            {this.props.user!==this.props.people[this.props.people.length-1]?<AddToList user={this.props.user} userChange={this.props.userChange} />:null}
+            <AddToList user={this.props.user} />
           </section>
           <section className="AdoptionPagePrimary">
-            <Pet pet={this.props.pets.cat} user={this.props.user} people={this.props.people} />
-            <Pet pet={this.props.pets.dog} user={this.props.user} people={this.props.people} />
+            <Pet
+              pet={this.props.pets.cat}
+              user={this.props.user}
+              people={this.props.people}
+            />
+            <Pet
+              pet={this.props.pets.dog}
+              user={this.props.user}
+              people={this.props.people}
+            />
           </section>
         </section>
       </div>
