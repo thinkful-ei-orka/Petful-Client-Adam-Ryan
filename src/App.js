@@ -21,7 +21,9 @@ class App extends React.Component {
     PeopleService.get().then(people => this.setState({ people }));
     PetService.get().then(pets => this.setState({ pets }));
   };
-
+  userChange = (value) => {
+    this.setState({user:value})
+  }
   render() {
     return (
       <Switch>
@@ -33,6 +35,7 @@ class App extends React.Component {
             people={this.state.people}
             pets={this.state.pets}
             user={this.state.user}
+            userChange={this.userChange}
           />}
         />
       </Switch>

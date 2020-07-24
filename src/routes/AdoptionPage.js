@@ -99,6 +99,9 @@ export default class AdoptionPage extends React.Component {
   componentDidMount() {
     this.props.getState();
   }
+  // componentDidUpdate(){
+  //   this.props.getState();
+  // }
   render() {
     return (
       <div className="AdoptionPage">
@@ -108,7 +111,7 @@ export default class AdoptionPage extends React.Component {
         <section>
           <section className='AdoptionQueue'>
             <AdoptionQueue people={this.props.people} />
-            <AddToList user={this.props.user} />
+            {this.props.user!==this.props.people[this.props.people.length-1]?<AddToList user={this.props.user} userChange={this.props.userChange} />:null}
           </section>
           <section className="AdoptionPagePrimary">
             <Pet pet={this.props.pets.cat} user={this.props.user} people={this.props.people} />
