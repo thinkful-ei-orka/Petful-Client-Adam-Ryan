@@ -100,11 +100,13 @@ export default class AdoptionPage extends React.Component {
               pet={this.props.pets.cat}
               user={this.props.user}
               people={this.props.people}
+              type='cats'
             />
             <Pet
               pet={this.props.pets.dog}
               user={this.props.user}
               people={this.props.people}
+              type='dogs'
             />
           </section>
         </section>
