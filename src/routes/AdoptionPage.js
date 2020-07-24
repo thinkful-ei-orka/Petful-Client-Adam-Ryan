@@ -4,6 +4,7 @@
 * The pet's name, gender, age, and breed.
 * A story of the pet's journey to the shelter
 When I visit the adoption page, I can only see the pet that is next in line to be adopted.
+
 I can see a list of other people currently in line.
 * I can submit my name and be added to the end of the line.
 * When I am not at the beginning of the line, I cannot see an option to adopt a pet.
@@ -21,3 +22,17 @@ I can see a list of other people currently in line.
     * I see my name removed from the line.
     * I see the pet I adopted is removed from view and replaced with another pet.
 */
+
+
+
+
+//title
+//pet module - button only shows if current user is next
+
+
+//--side(left?)
+//ticker (people) - starts upon name entering (currentPerson!==null) decreases by 1 every 5 seconds (a random pet will be adopted)
+//      (own module) - insert name section to be added to list - disappear upon submission
+
+// if people[0]===currentPerson = time ticker stops AND Adopt button appears
+// if currentPerson exists = enter name box disappears

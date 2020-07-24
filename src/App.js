@@ -12,6 +12,7 @@ class App extends React.Component {
     this.state = {
       people: null,
       pets: null,
+      currentUser: null,
       error: null,
     };
   }
