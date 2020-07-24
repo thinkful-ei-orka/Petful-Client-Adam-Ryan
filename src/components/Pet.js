@@ -25,7 +25,14 @@ export default function Pet(props) {
           </tr>
         </tbody>
       </table>
-      {props.people[0] === props.user ? <button type='button' onClick={'Adoption'}>Adopt Me!</button> : null}
+      {props.people[0] === props.user ? (
+        <button
+          type="button"
+          onClick={() => props.handlePetAdopted(props.type)}
+        >
+          Adopt Me!
+        </button>
+      ) : null}
     </section>
   );
 }

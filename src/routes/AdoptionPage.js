@@ -41,21 +41,6 @@ import AddToList from "../components/AddToList";
 // import config from "../config";
 // import Users from "../../components/Users/Users";
 import ApiService from "../services/ApiService";
-
-const handlePetAdopted = () => {
-  ApiService.handlePetAdopted()
-    .then((pets) => {
-      this.setState({ pets, currentCat: pets.first });
-    })
-    .then((res) =>
-      ApiService.handleUserDelete().then((users) => {
-        this.setState({ users });
-        //   this.this.props.history.push("/");
-      })
-    )
-    .catch((error) => console.error(error));
-};
-
 //   componentDidMount() {
 //     Promise.all([
 //       fetch(`${config.API_ENDPOINT}/dogs`),
@@ -84,6 +69,12 @@ export default class AdoptionPage extends React.Component {
   componentDidMount() {
     this.props.getState();
   }
+  handlePetAdopted = (type) => {
+    ApiService.handlePetAdopted(type).catch((error) => console.error(error));
+    ApiService.handleRemoveUser().then(() => {
+      this.props.getState().catch((error) => console.error(error));
+    });
+  };
   render() {
     return (
       <div className="AdoptionPage">
@@ -93,20 +84,28 @@ export default class AdoptionPage extends React.Component {
         <section>
           <section className="AdoptionQueue">
             <AdoptionQueue people={this.props.people} />
-            {this.props.user !== this.props.people[this.props.people.length - 1] ? <AddToList user={this.props.user} userChange={this.props.userChange} /> : null}
+            {this.props.user !==
+            this.props.people[this.props.people.length - 1] ? (
+              <AddToList
+                user={this.props.user}
+                userChange={this.props.userChange}
+              />
+            ) : null}
           </section>
           <section className="AdoptionPagePrimary">
             <Pet
               pet={this.props.pets.cat}
               user={this.props.user}
               people={this.props.people}
-              type='cats'
+              type="cats"
+              handlePetAdopted={this.handlePetAdopted}
             />
             <Pet
               pet={this.props.pets.dog}
               user={this.props.user}
               people={this.props.people}
-              type='dogs'
+              type="dogs"
+              handlePetAdopted={this.handlePetAdopted}
             />
           </section>
         </section>

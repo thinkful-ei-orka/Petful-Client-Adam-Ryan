@@ -1,15 +1,16 @@
 import config from "../config";
 
 const ApiService = {
-  handlePetAdopted() {
-    return fetch(`${config.API_ENDPOINT}/pets`, { method: "DELETE" }).then(
-      (res) => {
-        if (!res.ok) {
-          return res.json().then((e) => Promise.reject(e));
-        }
-        return res.json();
+  handlePetAdopted(type) {
+    return fetch(`${config.API_ENDPOINT}/pets`, {
+      method: "DELETE",
+      body: { type },
+    }).then((res) => {
+      if (!res.ok) {
+        return res.json().then((e) => Promise.reject(e));
       }
-    );
+      return res.json();
+    });
   },
 
   handleAddUser(user) {
