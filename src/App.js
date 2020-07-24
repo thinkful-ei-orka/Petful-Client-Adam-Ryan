@@ -10,17 +10,17 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      people: null,
-      pets: null,
+      people: [],
+      pets: {cat:{},dog:{}},
       user: null,
       error: null,
     };
-  }
-  componentDidMount() {
-    console.log(PeopleService);
+  };
+
+  getState = () => {
     PeopleService.get().then(people => this.setState({ people }));
     PetService.get().then(pets => this.setState({ pets }));
-  }
+  };
 
   render() {
     return (
@@ -29,6 +29,7 @@ class App extends React.Component {
         <Route
           path='/adopt'
           render={() => <AdoptionPage
+            getState={this.getState}
             people={this.state.people}
             pets={this.state.pets}
             user={this.state.user}

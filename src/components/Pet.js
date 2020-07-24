@@ -1,5 +1,4 @@
 import React from "react";
-import PetService from "../services/PetService";
 
 export default function Pet(props) {
   return (
@@ -24,6 +23,7 @@ export default function Pet(props) {
           <tr>{props.pet.story}</tr>
         </tr>
       </table>
+      <button type='button'></button>
     </section>
   );
 }

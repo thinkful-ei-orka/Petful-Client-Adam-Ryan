@@ -34,75 +34,69 @@ I can see a list of other people currently in line.
 // if currentPerson exists = enter name box disappears
 
 import React from "react";
+import Pet from '../components/Pet';
 // import { Link } from 'react-router-dom';
-import config from "../../config";
-import Cats from "../../components/Cats/Cats";
-import Dogs from "../../components/Dogs/Dogs";
-import Users from "../../components/Users/Users";
-import ApiService from "../../service/ApiService";
+// import config from "../config";
+// import Users from "../../components/Users/Users";
+import ApiService from "../services/ApiService";
+
+const handleDogAdopted = () => {
+  ApiService.handleDogAdopted()
+    .then((dogs) => {
+      this.setState({ dogs, currentDog: dogs.first });
+    })
+    .then((res) =>
+      ApiService.handleUserDelete().then((users) => {
+        this.setState({ users });
+        //   this.this.props.history.push("/");
+      })
+    )
+    .catch((error) => console.error(error));
+};
+
+const handleCatAdopted = () => {
+  ApiService.handleCatAdopted()
+    .then((cats) => {
+      this.setState({ cats, currentCat: cats.first });
+    })
+    .then((res) =>
+      ApiService.handleUserDelete().then((users) => {
+        this.setState({ users });
+        //   this.this.props.history.push("/");
+      })
+    )
+    .catch((error) => console.error(error));
+};
+
+//   componentDidMount() {
+//     Promise.all([
+//       fetch(`${config.API_ENDPOINT}/dogs`),
+//       fetch(`${config.API_ENDPOINT}/cats`),
+//       fetch(`${config.API_ENDPOINT}/users`),
+//     ])
+//       .then(([dogsRes, catsRes, usersRes]) => {
+//         if (!dogsRes.ok) return dogsRes.json().then((e) => Promise.reject(e));
+//         if (!catsRes.ok) return catsRes.json().then((e) => Promise.reject(e));
+//         if (!usersRes.ok) return usersRes.json().then((e) => Promise.reject(e));
+
+//         return Promise.all([dogsRes.json(), catsRes.json(), usersRes.json()]);
+//       })
+//       .then(([dogs, cats, users]) => {
+//         this.setState({
+//           dogs,
+//           cats,
+//           users,
+//           currentDog: dogs.first,
+//           currentCat: cats.first,
+//         });
+//       });
+//   }
+
 
 export default class AdoptionPage extends React.Component {
-  state = {
-    dogs: null,
-    cats: null,
-    users: null,
-    currentDog: null,
-    currentCat: null,
-    name: null,
-  };
-
-  handleDogAdopted = () => {
-    ApiService.handleDogAdopted()
-      .then((dogs) => {
-        this.setState({ dogs, currentDog: dogs.first });
-      })
-      .then((res) =>
-        ApiService.handleUserDelete().then((users) => {
-          this.setState({ users });
-          //   this.props.history.push("/");
-        })
-      )
-      .catch((error) => console.error(error));
-  };
-
-  handleCatAdopted = () => {
-    ApiService.handleCatAdopted()
-      .then((cats) => {
-        this.setState({ cats, currentCat: cats.first });
-      })
-      .then((res) =>
-        ApiService.handleUserDelete().then((users) => {
-          this.setState({ users });
-          //   this.props.history.push("/");
-        })
-      )
-      .catch((error) => console.error(error));
-  };
-
-  //   componentDidMount() {
-  //     Promise.all([
-  //       fetch(`${config.API_ENDPOINT}/dogs`),
-  //       fetch(`${config.API_ENDPOINT}/cats`),
-  //       fetch(`${config.API_ENDPOINT}/users`),
-  //     ])
-  //       .then(([dogsRes, catsRes, usersRes]) => {
-  //         if (!dogsRes.ok) return dogsRes.json().then((e) => Promise.reject(e));
-  //         if (!catsRes.ok) return catsRes.json().then((e) => Promise.reject(e));
-  //         if (!usersRes.ok) return usersRes.json().then((e) => Promise.reject(e));
-
-  //         return Promise.all([dogsRes.json(), catsRes.json(), usersRes.json()]);
-  //       })
-  //       .then(([dogs, cats, users]) => {
-  //         this.setState({
-  //           dogs,
-  //           cats,
-  //           users,
-  //           currentDog: dogs.first,
-  //           currentCat: cats.first,
-  //         });
-  //       });
-  //   }
-
+  componentDidMount(){
+    this.props.getState()
+  }
   render() {
     return (
       <div className="AdoptionPage">
@@ -110,8 +104,8 @@ export default class AdoptionPage extends React.Component {
           <h1>Here are some available fluffballs!</h1>
         </header>
         <section className="AdoptionPagePrimary">
-          <Pet pet={props.pets.cat} user={props.user} people={props.people} />
-          <Pet pet={props.pets.dog} user={props.user} people={props.people} />
+          <Pet pet={this.props.pets.cat} user={this.props.user} people={this.props.people} />
+          <Pet pet={this.props.pets.dog} user={this.props.user} people={this.props.people} />
         </section>
       </div>
     );
