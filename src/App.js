@@ -12,7 +12,7 @@ class App extends React.Component {
     this.state = {
       people: null,
       pets: null,
-      currentUser: null,
+      user: null,
       error: null,
     };
   }
@@ -31,6 +31,7 @@ class App extends React.Component {
           render={() => <AdoptionPage
             people={this.state.people}
             pets={this.state.pets}
+            user={this.state.user}
           />}
         />
       </Switch>
