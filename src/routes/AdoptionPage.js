@@ -70,6 +70,14 @@ export default class AdoptionPage extends React.Component {
   componentDidMount() {
     this.props.getState();
   }
+
+  demoFunction() {
+    setTimeout(() => {
+      let type = ["cats", "dogs"][Math.floor(Math.random() * 2)];
+      this.handlePetAdopted(type);
+    }, 5000);
+  }
+
   handlePetAdopted = (type) => {
     ApiService.handlePetAdopted(type).catch((error) => console.error(error));
     ApiService.handleRemoveUser().then(() => {
@@ -111,6 +119,8 @@ export default class AdoptionPage extends React.Component {
                 user={this.props.user}
                 userChange={this.props.userChange}
                 addToQueue={this.addToQueue}
+                people={this.props.people}
+                demoFunction={this.demoFunction}
               />
             ) : null}
           </section>

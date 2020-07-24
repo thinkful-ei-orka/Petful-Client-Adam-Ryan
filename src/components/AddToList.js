@@ -2,7 +2,14 @@ import React from "react";
 
 export default function AdoptionQueue(props) {
   return (
-    <form onSubmit={() => props.addToQueue(props.user)}>
+    <form
+      onSubmit={() => {
+        props.addToQueue(props.user);
+        while (props.people !== props.user) {
+          props.demoFunction();
+        }
+      }}
+    >
       <input
         placehodler="Enter Name Here"
         value={props.user}
