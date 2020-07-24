@@ -23,7 +23,7 @@ export default function Pet(props) {
           <tr>{props.pet.story}</tr>
         </tr>
       </table>
-      <button type='button'></button>
+      {props.people[0]===props.user?<button type='button' onClick={'Adoption'}>Adopt Me!</button>:null}
     </section>
   );
 }

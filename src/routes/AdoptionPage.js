@@ -35,6 +35,8 @@ I can see a list of other people currently in line.
 
 import React from "react";
 import Pet from '../components/Pet';
+import AdoptionQueue from '../components/AdoptionQueue.js';
+import AddToList from '../components/AddToList';
 // import { Link } from 'react-router-dom';
 // import config from "../config";
 // import Users from "../../components/Users/Users";
@@ -94,8 +96,8 @@ const handleCatAdopted = () => {
 
 
 export default class AdoptionPage extends React.Component {
-  componentDidMount(){
-    this.props.getState()
+  componentDidMount() {
+    this.props.getState();
   }
   render() {
     return (
@@ -103,10 +105,17 @@ export default class AdoptionPage extends React.Component {
         <header>
           <h1>Here are some available fluffballs!</h1>
         </header>
-        <section className="AdoptionPagePrimary">
-          <Pet pet={this.props.pets.cat} user={this.props.user} people={this.props.people} />
-          <Pet pet={this.props.pets.dog} user={this.props.user} people={this.props.people} />
+        <section>
+          <section className='AdoptionQueue'>
+            <AdoptionQueue people={this.props.people} />
+            <AddToList user={this.props.user} />
+          </section>
+          <section className="AdoptionPagePrimary">
+            <Pet pet={this.props.pets.cat} user={this.props.user} people={this.props.people} />
+            <Pet pet={this.props.pets.dog} user={this.props.user} people={this.props.people} />
+          </section>
         </section>
+
       </div>
     );
   }
