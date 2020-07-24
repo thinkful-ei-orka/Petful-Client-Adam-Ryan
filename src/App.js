@@ -23,7 +23,8 @@ class App extends React.Component {
   };
   userChange = (value) => {
     this.setState({user:value})
-  }
+  };
+
   render() {
     return (
       <Switch>

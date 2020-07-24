@@ -84,6 +84,14 @@ export default class AdoptionPage extends React.Component {
   componentDidMount() {
     this.props.getState();
   }
+
+  demoFunction() {
+    setTimeout(() => {
+      let type = ['cats', 'dogs'][Math.floor(Math.random() * 2)];
+      this.handlePetAdopted(type);
+    }, 5000);
+  }
+
   render() {
     return (
       <div className="AdoptionPage">
@@ -93,7 +101,7 @@ export default class AdoptionPage extends React.Component {
         <section>
           <section className="AdoptionQueue">
             <AdoptionQueue people={this.props.people} />
-            {this.props.user !== this.props.people[this.props.people.length - 1] ? <AddToList user={this.props.user} userChange={this.props.userChange} /> : null}
+            {this.props.user !== this.props.people[this.props.people.length - 1] ? <AddToList user={this.props.user} userChange={this.props.userChange} people={this.props.people} demoFunction={this.demoFunction} /> : null}
           </section>
           <section className="AdoptionPagePrimary">
             <Pet
