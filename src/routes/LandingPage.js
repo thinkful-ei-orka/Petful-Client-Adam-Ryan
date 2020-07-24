@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function LandingPage(props) {
   return (
-    <body>
+    <div className='LandingPage'>
       <header>
         <h1>Welcome to PetGrab!</h1>
       </header>
@@ -19,6 +19,6 @@ export default function LandingPage(props) {
       <footer>
         <Link to={"/adopt"}><button type='button'>Adopt a pet today!</button></Link>
       </footer>
-    </body>
+    </div>
   );
 }

@@ -6,24 +6,26 @@ export default function Pet(props) {
       <h3>{props.pet.name}</h3>
       <img src={props.pet.imageURL} alt={`${props.pet.description}`} />
       <table>
-        <tr>
-          <th>Name</th>
-          <tr>{props.pet.age}</tr>
-        </tr>
-        <tr>
-          <th>Gender</th>
-          <tr>{props.pet.gender}</tr>
-        </tr>
-        <tr>
-          <th>Breed</th>
-          <tr>{props.pet.breed}</tr>
-        </tr>
-        <tr>
-          <th>Story</th>
-          <tr>{props.pet.story}</tr>
-        </tr>
+        <tbody>
+          <tr>
+            <th>Name</th>
+            <td>{props.pet.age}</td>
+          </tr>
+          <tr>
+            <th>Gender</th>
+            <td>{props.pet.gender}</td>
+          </tr>
+          <tr>
+            <th>Breed</th>
+            <td>{props.pet.breed}</td>
+          </tr>
+          <tr>
+            <th>Story</th>
+            <td>{props.pet.story}</td>
+          </tr>
+        </tbody>
       </table>
-      {props.people[0]===props.user?<button type='button' onClick={'Adoption'}>Adopt Me!</button>:null}
+      {props.people[0] === props.user ? <button type='button' onClick={'Adoption'}>Adopt Me!</button> : null}
     </section>
   );
 }

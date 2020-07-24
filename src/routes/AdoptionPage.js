@@ -118,7 +118,6 @@ export default class AdoptionPage extends React.Component {
             <Pet pet={this.props.pets.dog} user={this.props.user} people={this.props.people} />
           </section>
         </section>
-
       </div>
     );
   }

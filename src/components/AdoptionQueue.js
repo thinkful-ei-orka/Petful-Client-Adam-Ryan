@@ -5,7 +5,7 @@ export default function AdoptionQueue(props) {
   return (
     <ul>
       {props.people.map(person =>
-        <QueueListing person={person} />
+        <QueueListing person={person} key={person}/>
       )}
     </ul>
   );
