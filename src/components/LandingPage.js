@@ -7,6 +7,10 @@ class LandingPage extends React.Component {
         <p>Grab Animal</p>
         <p>Click Button to Grab Animal</p>
         <p>thanku</p>
+        <div className="petPreview">
+          <div className="cat"></div>
+          <div className="dog"></div>
+        </div>
       </>
     );
   }
