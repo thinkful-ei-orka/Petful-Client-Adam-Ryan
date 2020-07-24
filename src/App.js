@@ -12,7 +12,7 @@ class App extends React.Component {
     this.state = {
       people: [],
       pets: {cat:{},dog:{}},
-      user: null,
+      user: '',
       error: null,
     };
   };

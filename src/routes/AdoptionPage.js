@@ -93,7 +93,7 @@ export default class AdoptionPage extends React.Component {
         <section>
           <section className="AdoptionQueue">
             <AdoptionQueue people={this.props.people} />
-            <AddToList user={this.props.user} />
+            {this.props.user !== this.props.people[this.props.people.length - 1] ? <AddToList user={this.props.user} userChange={this.props.userChange} /> : null}
           </section>
           <section className="AdoptionPagePrimary">
             <Pet
