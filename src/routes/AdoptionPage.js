@@ -41,6 +41,7 @@ import AddToList from "../components/AddToList";
 // import config from "../config";
 // import Users from "../../components/Users/Users";
 import ApiService from "../services/ApiService";
+import config from "../config";
 //   componentDidMount() {
 //     Promise.all([
 //       fetch(`${config.API_ENDPOINT}/dogs`),
@@ -75,6 +76,26 @@ export default class AdoptionPage extends React.Component {
       this.props.getState().catch((error) => console.error(error));
     });
   };
+  handleAddUser = (input) => {
+    ApiService.handleAddUser(input).catch((error) => console.error(error));
+  };
+  addToQueue = (name) => {
+    const newUser = {
+      name: name,
+    };
+    const userString = JSON.stringify(newUser);
+    fetch(`${config.API_ENDPOINT}/people`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: userString,
+    })
+      .then(this.props.getState())
+      .catch((error) => {
+        console.error({ error });
+      });
+  };
   render() {
     return (
       <div className="AdoptionPage">
@@ -89,6 +110,7 @@ export default class AdoptionPage extends React.Component {
               <AddToList
                 user={this.props.user}
                 userChange={this.props.userChange}
+                addToQueue={this.addToQueue}
               />
             ) : null}
           </section>
