@@ -25,7 +25,7 @@ class App extends React.Component {
   render() {
     return (
       <Switch>
-        <Route path='/' component={LandingPage} />
+        <Route exact path='/' component={LandingPage} />
         <Route
           path='/adopt'
           render={() => <AdoptionPage
