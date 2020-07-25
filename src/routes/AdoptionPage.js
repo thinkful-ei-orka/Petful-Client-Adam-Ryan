@@ -33,11 +33,11 @@ export default class AdoptionPage extends React.Component {
       },
       body: userString,
     })
-      // .then(this.props.getState())
+      .then(()=>this.props.getState())
       .catch((error) => {
         console.error({ error });
       });
-    this.props.getState();
+    // this.props.getState();
   };
 
   render() {
