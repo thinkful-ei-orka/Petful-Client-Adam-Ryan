@@ -3,11 +3,12 @@ import React from "react";
 export default function AdoptionQueue(props) {
   return (
     <form
-      onSubmit={() => {
+      onSubmit={(e) => {
+        e.preventDefault();
         props.addToQueue(props.user);
-        while (props.people !== props.user) {
-          props.demoFunction();
-        }
+        // while (props.people !== props.user) {
+        setTimeout(props.demoFunction(), 5000);
+        // }
       }}
     >
       <input
