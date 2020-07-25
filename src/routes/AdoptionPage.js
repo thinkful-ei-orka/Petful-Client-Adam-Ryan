@@ -11,16 +11,12 @@ export default class AdoptionPage extends React.Component {
     this.props.getState();
   };
 
-  componentDidUpdate(){
-    this.props.getState();
-  }
-
   handlePetAdopted(type) {
     ApiService.handlePetAdopted(type).catch((error) => console.error(error));
     ApiService.handleRemoveUser().catch((error) => console.error(error));
   };
 
-  demoFunction=()=> {
+  demoFunction = () => {
     let type = ["cats", "dogs"][Math.floor(Math.random() * 2)];
     this.handlePetAdopted(type);
   };
@@ -37,10 +33,11 @@ export default class AdoptionPage extends React.Component {
       },
       body: userString,
     })
-      .then(this.props.getState())
+      // .then(this.props.getState())
       .catch((error) => {
         console.error({ error });
       });
+    this.props.getState();
   };
 
   render() {
