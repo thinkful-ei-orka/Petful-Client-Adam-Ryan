@@ -8,7 +8,7 @@ export default function Pet(props) {
       <table>
         <tbody>
           <tr>
-            <th>Name</th>
+            <th>Age</th>
             <td>{props.pet.age}</td>
           </tr>
           <tr>
@@ -25,7 +25,7 @@ export default function Pet(props) {
           </tr>
         </tbody>
       </table>
-      {props.people[0] === props.user ? (
+      {(props.people===undefined || props.people[0] === props.user) ? (
         <button
           type="button"
           onClick={() => props.handlePetAdopted(props.type)}

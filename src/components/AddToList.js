@@ -7,8 +7,9 @@ export default function AdoptionQueue(props) {
         e.preventDefault();
         props.addToQueue(props.user);
         // while (props.people !== props.user) {
-        // setTimeout(props.demoFunction(), 5000);
+        // setTimeout(props.demoFunction(), 1000);
         // }
+        props.demoFunction();
       }}
     >
       <input

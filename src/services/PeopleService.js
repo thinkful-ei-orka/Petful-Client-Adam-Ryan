@@ -6,7 +6,7 @@ const PeopleService = {
 
     let result = await promise;
 
-    return result;
+    return (result === null) ? [] : result;
   },
 };
 

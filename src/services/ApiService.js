@@ -1,9 +1,8 @@
 import config from "../config";
 
 const ApiService = {
-  handlePetAdopted(type) {
-    console.log(type);
-    return fetch(`${config.API_ENDPOINT}pets`, {
+  async handlePetAdopted(type) {
+    return await fetch(`${config.API_ENDPOINT}pets`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
@@ -19,8 +18,8 @@ const ApiService = {
     });
   },
 
-  handleAddUser(user) {
-    return fetch(`${config.API_ENDPOINT}people`, {
+  async handleAddUser(user) {
+    return await fetch(`${config.API_ENDPOINT}people`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -34,15 +33,18 @@ const ApiService = {
     });
   },
 
-  handleRemoveUser() {
-    return fetch(`${config.API_ENDPOINT}people`, {
-      method: "POST",
+  async handleRemoveUser() {
+    return await fetch(`${config.API_ENDPOINT}people`, {
+      method: "DELETE",
       headers: {
         "content-type": "application/json",
       }
     }).then((res) => {
-      if (!res.ok) return res.json().then((e) => Promise.reject(e));
-      return res.json();
+      if (!res.ok) {
+        return res.json().then((e) => Promise.reject(e));
+      } else {
+        return res.json();
+      };
     });
   },
 };
