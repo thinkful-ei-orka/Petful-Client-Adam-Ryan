@@ -11,11 +11,13 @@ export default class AdoptionPage extends React.Component {
     this.props.getState();
   };
 
+  componentDidUpdate(){
+    this.props.getState();
+  }
+
   handlePetAdopted(type) {
     ApiService.handlePetAdopted(type).catch((error) => console.error(error));
-    ApiService.handleRemoveUser().then(() => {
-      this.props.getState();
-    }).catch((error) => console.error(error));
+    ApiService.handleRemoveUser().catch((error) => console.error(error));
   };
 
   demoFunction=()=> {

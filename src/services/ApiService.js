@@ -36,7 +36,7 @@ const ApiService = {
 
   handleRemoveUser() {
     return fetch(`${config.API_ENDPOINT}people`, {
-      method: "DELETE",
+      method: "POST",
       headers: {
         "content-type": "application/json",
       }
