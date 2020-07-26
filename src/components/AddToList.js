@@ -6,9 +6,7 @@ export default function AdoptionQueue(props) {
       onSubmit={(e) => {
         e.preventDefault();
         props.addToQueue(props.user);
-        // while (props.people !== props.user) {
-        // setTimeout(props.demoFunction(), 1000);
-        // }
+        
         props.demoFunction();
       }}
     >

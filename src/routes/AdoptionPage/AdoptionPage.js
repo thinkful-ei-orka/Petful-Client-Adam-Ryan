@@ -24,7 +24,7 @@ export default class AdoptionPage extends React.Component {
   }
 
   demoFunction = () => {
-    if (this.props.people[0] !== this.props.user) {
+    if (this.props.people[0] !== this.props.user && this.props.people.length>0 && this.props.user!=="") {
       let type = ["cats", "dogs"][Math.floor(Math.random() * 2)];
       this.handlePetAdopted(type);
       setTimeout(() => this.demoFunction(), 5000);
@@ -47,7 +47,6 @@ export default class AdoptionPage extends React.Component {
       .catch((error) => {
         console.error({ error });
       });
-    // this.props.getState();
   };
 
   render() {
@@ -84,6 +83,7 @@ export default class AdoptionPage extends React.Component {
                   people={this.props.people}
                   type="cats"
                   handlePetAdopted={this.handlePetAdopted}
+                  userChange = {this.props.userChange}
                 />
               </section>
               <section className="AdoptionPageAnimalTwo">
@@ -93,6 +93,7 @@ export default class AdoptionPage extends React.Component {
                   people={this.props.people}
                   type="dogs"
                   handlePetAdopted={this.handlePetAdopted}
+                  userChange = {this.props.userChange}
                 />
               </section>
             </section>
