@@ -28,6 +28,12 @@ table {
   margin-right: auto;
 }
 
+.PetImage {
+  width:500px;
+  height:332px;
+  border:1px solid black
+}
+
 .AdoptionPageAnimalOne {
   float: left;
   display: flex;
