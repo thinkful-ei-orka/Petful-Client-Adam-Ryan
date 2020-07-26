@@ -2,9 +2,13 @@ import React from "react";
 
 export default function Pet(props) {
   return (
-    <section>
+    <section className="PetContainer">
       <h3>{props.pet.name}</h3>
-      <img src={props.pet.imageURL} alt={`${props.pet.description}`} />
+      <img
+        className="PetImage"
+        src={props.pet.imageURL}
+        alt={`${props.pet.description}`}
+      />
       <table>
         <tbody>
           <tr>
@@ -25,8 +29,9 @@ export default function Pet(props) {
           </tr>
         </tbody>
       </table>
-      {(props.people===undefined || props.people[0] === props.user) ? (
+      {props.people === undefined || props.people[0] === props.user ? (
         <button
+          className="AdoptionButton"
           type="button"
           onClick={() => props.handlePetAdopted(props.type)}
         >
