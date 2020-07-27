@@ -1,16 +1,43 @@
-.AdoptionPage {
-  height: 100%;
-  text-align: center;
-  font-family: sans-serif;
-  max-width: 900px;
-  align-items: center;
-  margin-left: auto;
-  margin-right: auto;
+* {
+  box-sizing: border-box;
+  overflow:auto;
 }
 
-.AdoptPagePrimary {
-  display: flex;
-  justify-content: space-evenly;
+.AdoptionPage {
+  height: 100vh;
+  width:100vw;
+  text-align: center;
+  font-family: sans-serif;
+  left:0;
+  top:0;
+}
+
+.AdoptionPagePrimary {
+  width:100vw;
+  height:85vh;
+  display:flex;
+  flex-direction:row;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+main.Adoption {
+  width:100vw;
+  position:fixed;
+  top:15vh;
+  height:85vh;
+}
+
+header {
+  position:fixed;
+  left:0;
+  top:0;
+  height:15vh;
+  width:100vw;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 h1 {
@@ -26,34 +53,23 @@ table {
   margin-right: auto;
 }
 
-.PetContainer {
-  margin-left: auto;
-  margin-right: auto;
-  padding: 10px;
+.PetContainer-cats {
+  margin:5vh;
+  padding:0;
+  max-width: 502px;
+}
+
+.PetContainer-dogs {
+  margin:5vh;
+  padding:0;
+  max-width: 502px;
 }
 
 .PetImage {
-  display: flex;
-  flex-direction: row;
+  max-width:500px;
   width: 40vw;
   height: 35vh;
   border: 1px solid black;
-}
-
-.AdoptionPageAnimalOne {
-  float: left;
-  display: flex;
-  flex-direction: row;
-  width: 45%;
-  padding-right: 10px;
-}
-
-.AdoptionPageAnimalTwo {
-  float: right;
-  display: flex;
-  flex-direction: row;
-  width: 45%;
-  padding-left: 10px;
 }
 
 .AdoptionButton {

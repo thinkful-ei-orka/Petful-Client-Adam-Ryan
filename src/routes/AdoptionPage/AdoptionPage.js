@@ -55,7 +55,7 @@ export default class AdoptionPage extends React.Component {
         <header>
           <h1>Here are some available fluffballs!</h1>
         </header>
-        <section>
+        <main className='Adoption'>
           <section className="AdoptionQueue">
             <AdoptionQueue people={this.props.people} />
             {this.props.people === undefined ||
@@ -76,7 +76,6 @@ export default class AdoptionPage extends React.Component {
             </section>
           ) : (
             <section className="AdoptionPagePrimary">
-              <section className="AdoptionPageAnimalOne">
                 <Pet
                   pet={this.props.pets.cat}
                   user={this.props.user}
@@ -85,8 +84,6 @@ export default class AdoptionPage extends React.Component {
                   handlePetAdopted={this.handlePetAdopted}
                   userChange = {this.props.userChange}
                 />
-              </section>
-              <section className="AdoptionPageAnimalTwo">
                 <Pet
                   pet={this.props.pets.dog}
                   user={this.props.user}
@@ -95,10 +92,9 @@ export default class AdoptionPage extends React.Component {
                   handlePetAdopted={this.handlePetAdopted}
                   userChange = {this.props.userChange}
                 />
-              </section>
             </section>
           )}
-        </section>
+        </main>
       </div>
     );
   }

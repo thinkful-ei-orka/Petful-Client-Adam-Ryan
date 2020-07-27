@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Pet(props) {
   return (
-    <section className="PetContainer">
+    <section className={`PetContainer-${props.type}`}>
       <h3>{props.pet.name}</h3>
       <img
         className="PetImage"
