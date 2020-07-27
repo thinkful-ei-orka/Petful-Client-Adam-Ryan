@@ -10,8 +10,11 @@
 
 .AdoptPagePrimary {
   display: flex;
-  align-items: stretch;
-  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+h1 {
+  text-align: center;
 }
 
 li {
@@ -26,12 +29,15 @@ table {
 .PetContainer {
   margin-left: auto;
   margin-right: auto;
+  padding: 10px;
 }
 
 .PetImage {
-  width:500px;
-  height:332px;
-  border:1px solid black
+  display: flex;
+  flex-direction: row;
+  width: 500px;
+  height: 332px;
+  border: 1px solid black;
 }
 
 .AdoptionPageAnimalOne {
@@ -39,7 +45,7 @@ table {
   display: flex;
   flex-direction: row;
   width: 45%;
-  padding-right: 3%;
+  padding-right: 10px;
 }
 
 .AdoptionPageAnimalTwo {
@@ -47,13 +53,13 @@ table {
   display: flex;
   flex-direction: row;
   width: 45%;
-  padding-left: 3%;
+  padding-left: 10px;
 }
 
 .AdoptionButton {
   margin: 16px;
   border: none;
-  background: #404040;
+  background: #383838;
   color: #ffffff !important;
   font-weight: 100;
   padding: 12px;
@@ -63,10 +69,62 @@ table {
 }
 
 .AdoptionButton:hover {
-  color: #404040 !important;
+  color: #383838 !important;
   font-weight: 500;
   letter-spacing: 2px;
   background: #f9f6f6;
   box-shadow: 0px 7px 40px -10px rgba(0, 0, 0, 0.7);
   transition: all 0.5s ease 0s;
+}
+
+.AdoptionQueue {
+  position: absolute;
+  right: 5vw;
+  bottom: 10px;
+}
+
+.QueueForm input {
+  width: 100%;
+  height: 100%;
+  color: grey;
+  padding-top: 10px;
+  font-size: 20px;
+  border: none;
+  text-align: center;
+  outline: none;
+}
+
+.QueueForm label {
+  position: relative;
+  bottom: 0px;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  border-bottom: 1px solid black;
+}
+
+.QueueButton {
+  margin: 16px;
+  border: none;
+  background: #383838;
+  color: #ffffff !important;
+  font-weight: 100;
+  padding: 12px;
+  border-radius: 6px;
+  display: inline-block;
+  transition: all 0.5s ease 0s;
+}
+
+.QueueButton:hover {
+  color: #383838 !important;
+  font-weight: 500;
+  letter-spacing: 1px;
+  background: #f9f6f6;
+  box-shadow: 0px 7px 40px -10px rgba(0, 0, 0, 0.7);
+  transition: all 0.5s ease 0s;
+}
+
+.UserList {
+  font-weight: 750;
+  text-align: center;
 }

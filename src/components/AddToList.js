@@ -3,21 +3,24 @@ import React from "react";
 export default function AdoptionQueue(props) {
   return (
     <form
+      className="QueueForm"
       onSubmit={(e) => {
         e.preventDefault();
         props.addToQueue(props.user);
-        
+
         props.demoFunction();
       }}
     >
       <input
-        placehodler="Enter Name Here"
+        placeholder="Enter Name Here"
         value={props.user}
         onChange={(e) => {
           props.userChange(e.target.value);
         }}
       />
-      <button type="submit">Join the adoption queue!</button>
+      <button className="QueueButton" type="submit">
+        Join the adoption queue!
+      </button>
     </form>
   );
 }
