@@ -35,8 +35,8 @@ table {
 .PetImage {
   display: flex;
   flex-direction: row;
-  width: 500px;
-  height: 332px;
+  width: 40vw;
+  height: 35vh;
   border: 1px solid black;
 }
 
@@ -81,10 +81,15 @@ table {
   position: absolute;
   right: 5vw;
   bottom: 10px;
+  border:1px solid black;
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
 }
 
 .QueueForm input {
-  width: 100%;
+  width: 80%;
   height: 100%;
   color: grey;
   padding-top: 10px;
@@ -92,6 +97,7 @@ table {
   border: none;
   text-align: center;
   outline: none;
+  border:1px solid black
 }
 
 .QueueForm label {
@@ -127,4 +133,5 @@ table {
 .UserList {
   font-weight: 750;
   text-align: center;
+  padding:0;
 }
