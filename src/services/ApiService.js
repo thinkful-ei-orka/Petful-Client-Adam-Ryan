@@ -1,15 +1,13 @@
-import config from "../config";
-
 const ApiService = {
   async handlePetAdopted(type) {
-    return await fetch(`${config.API_ENDPOINT}pets`, {
+    return await fetch(`https://tranquil-retreat-20194.herokuapp.com/pets`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
       },
       body: JSON.stringify({
-        type: type
-      })
+        type: type,
+      }),
     }).then((res) => {
       if (!res.ok) {
         return res.json().then((e) => Promise.reject(e));
@@ -19,7 +17,7 @@ const ApiService = {
   },
 
   async handleAddUser(user) {
-    return await fetch(`${config.API_ENDPOINT}people`, {
+    return await fetch(`https://tranquil-retreat-20194.herokuapp.com/people`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -34,17 +32,17 @@ const ApiService = {
   },
 
   async handleRemoveUser() {
-    return await fetch(`${config.API_ENDPOINT}people`, {
+    return await fetch(`https://tranquil-retreat-20194.herokuapp.com/people`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
-      }
+      },
     }).then((res) => {
       if (!res.ok) {
         return res.json().then((e) => Promise.reject(e));
       } else {
         return res.json();
-      };
+      }
     });
   },
 };
