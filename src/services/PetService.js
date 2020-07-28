@@ -12,4 +12,4 @@ const PetService = {
   },
 };
 
-module.exports = PetService;
+export default PetService;

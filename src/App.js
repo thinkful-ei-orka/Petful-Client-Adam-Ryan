@@ -3,8 +3,8 @@ import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import LandingPage from "./routes/LandingPage/LandingPage.js";
 import AdoptionPage from "./routes/AdoptionPage/AdoptionPage.js";
-const PeopleService = require("./services/PeopleService");
-const PetService = require("./services/PetService");
+import PeopleService from "./services/PeopleService";
+import PetService from "./services/PetService";
 
 class App extends React.Component {
   constructor(props) {
@@ -24,7 +24,6 @@ class App extends React.Component {
   userChange = (value) => {
     this.setState({ user: value });
   };
-
 
   render() {
     return (

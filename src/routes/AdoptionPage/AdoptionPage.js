@@ -1,9 +1,9 @@
 import React from "react";
+import Pet from "../../components/Pet";
+import AdoptionQueue from "../../components/AdoptionQueue.js";
+import AddToList from "../../components/AddToList";
+import ApiService from "../../services/ApiService";
 import "./AdoptionPage.css";
-const Pet = require("../../components/Pet");
-const AdoptionQueue = require("../../components/AdoptionQueue");
-const AddToList = require("../../components/AddToList");
-const ApiService = require("../../services/ApiService");
 
 export default class AdoptionPage extends React.Component {
   constructor(props) {

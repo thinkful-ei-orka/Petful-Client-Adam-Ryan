@@ -12,4 +12,4 @@ const PeopleService = {
   },
 };
 
-module.exports = PeopleService;
+export default PeopleService;
