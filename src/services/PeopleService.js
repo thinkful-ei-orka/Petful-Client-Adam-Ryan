@@ -1,7 +1,7 @@
 const PeopleService = {
   async get() {
     let promise = await fetch(
-      `https://tranquil-retreat-20194.herokuapp.com/people`
+      `http://localhost:8000/people`
     )
       .then((res) => res.json())
       .catch((error) => console.log(error));

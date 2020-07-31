@@ -1,3 +1,3 @@
-const API_ENDPOINT = "https://tranquil-retreat-20194.herokuapp.com/";
+const API_ENDPOINT = "http://localhost:8000/";
 
 module.exports = API_ENDPOINT;

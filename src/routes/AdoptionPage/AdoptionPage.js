@@ -9,6 +9,9 @@ export default class AdoptionPage extends React.Component {
   constructor(props) {
     super(props);
     this.handlePetAdopted = this.handlePetAdopted.bind(this);
+    this.state = {
+
+    };
   }
   componentDidMount() {
     this.props.getState();
@@ -22,6 +25,16 @@ export default class AdoptionPage extends React.Component {
     this.props.getState();
   }
 
+  demoExtension(count = 0) {
+    const people = ['Aaron A Aaronson', 'Betty Buckingham', 'Charlie Cook', 'Delila Dirk', 'Erin Engleburt'];
+    if (count < 5) {
+      setTimeout(async () => {
+        await this.addToQueue(people[count]);
+        await this.demoExtension(count+=1);
+      }, 5000);
+    }
+  };
+
   demoFunction = () => {
     if (
       this.props.people[0] !== this.props.user &&
@@ -31,6 +44,8 @@ export default class AdoptionPage extends React.Component {
       let type = ["cats", "dogs"][Math.floor(Math.random() * 2)];
       this.handlePetAdopted(type);
       setTimeout(() => this.demoFunction(), 5000);
+    } else {
+      this.demoExtension();
     }
   };
 
@@ -39,7 +54,7 @@ export default class AdoptionPage extends React.Component {
       name: name,
     };
     const userString = JSON.stringify(newUser);
-    fetch(`https://tranquil-retreat-20194.herokuapp.com/people`, {
+    fetch(`http://localhost:8000/people`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -62,41 +77,41 @@ export default class AdoptionPage extends React.Component {
           <section className="AdoptionQueue">
             <AdoptionQueue people={this.props.people} />
             {this.props.people === undefined ||
-            this.props.user !==
+              this.props.user !==
               this.props.people[this.props.people.length - 1] ? (
-              <AddToList
-                user={this.props.user}
-                userChange={this.props.userChange}
-                addToQueue={this.addToQueue}
-                people={this.props.people}
-                demoFunction={this.demoFunction}
-              />
-            ) : null}
+                <AddToList
+                  user={this.props.user}
+                  userChange={this.props.userChange}
+                  addToQueue={this.addToQueue}
+                  people={this.props.people}
+                  demoFunction={this.demoFunction}
+                />
+              ) : null}
           </section>
           {this.props.pets === undefined ? (
             <section className="AdoptionPageAdopted">
               <p>All our pets are adopted!</p>
             </section>
           ) : (
-            <section className="AdoptionPagePrimary">
-              <Pet
-                pet={this.props.pets.cat}
-                user={this.props.user}
-                people={this.props.people}
-                type="cats"
-                handlePetAdopted={this.handlePetAdopted}
-                userChange={this.props.userChange}
-              />
-              <Pet
-                pet={this.props.pets.dog}
-                user={this.props.user}
-                people={this.props.people}
-                type="dogs"
-                handlePetAdopted={this.handlePetAdopted}
-                userChange={this.props.userChange}
-              />
-            </section>
-          )}
+              <section className="AdoptionPagePrimary">
+                <Pet
+                  pet={this.props.pets.cat}
+                  user={this.props.user}
+                  people={this.props.people}
+                  type="cats"
+                  handlePetAdopted={this.handlePetAdopted}
+                  userChange={this.props.userChange}
+                />
+                <Pet
+                  pet={this.props.pets.dog}
+                  user={this.props.user}
+                  people={this.props.people}
+                  type="dogs"
+                  handlePetAdopted={this.handlePetAdopted}
+                  userChange={this.props.userChange}
+                />
+              </section>
+            )}
         </main>
       </div>
     );
