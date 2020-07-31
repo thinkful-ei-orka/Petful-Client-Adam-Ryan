@@ -3,7 +3,6 @@ import Pet from "../../components/Pet";
 import AdoptionQueue from "../../components/AdoptionQueue.js";
 import AddToList from "../../components/AddToList";
 import ApiService from "../../services/ApiService";
-import config from "../../config";
 import "./AdoptionPage.css";
 
 export default class AdoptionPage extends React.Component {
@@ -24,7 +23,11 @@ export default class AdoptionPage extends React.Component {
   }
 
   demoFunction = () => {
-    if (this.props.people[0] !== this.props.user && this.props.people.length>0 && this.props.user!=="") {
+    if (
+      this.props.people[0] !== this.props.user &&
+      this.props.people.length > 0 &&
+      this.props.user !== ""
+    ) {
       let type = ["cats", "dogs"][Math.floor(Math.random() * 2)];
       this.handlePetAdopted(type);
       setTimeout(() => this.demoFunction(), 5000);
@@ -36,7 +39,7 @@ export default class AdoptionPage extends React.Component {
       name: name,
     };
     const userString = JSON.stringify(newUser);
-    fetch(`${config.API_ENDPOINT}people`, {
+    fetch(`https://tranquil-retreat-20194.herokuapp.com/people`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -55,7 +58,7 @@ export default class AdoptionPage extends React.Component {
         <header>
           <h1>Here are some available fluffballs!</h1>
         </header>
-        <main className='Adoption'>
+        <main className="Adoption">
           <section className="AdoptionQueue">
             <AdoptionQueue people={this.props.people} />
             {this.props.people === undefined ||
@@ -76,22 +79,22 @@ export default class AdoptionPage extends React.Component {
             </section>
           ) : (
             <section className="AdoptionPagePrimary">
-                <Pet
-                  pet={this.props.pets.cat}
-                  user={this.props.user}
-                  people={this.props.people}
-                  type="cats"
-                  handlePetAdopted={this.handlePetAdopted}
-                  userChange = {this.props.userChange}
-                />
-                <Pet
-                  pet={this.props.pets.dog}
-                  user={this.props.user}
-                  people={this.props.people}
-                  type="dogs"
-                  handlePetAdopted={this.handlePetAdopted}
-                  userChange = {this.props.userChange}
-                />
+              <Pet
+                pet={this.props.pets.cat}
+                user={this.props.user}
+                people={this.props.people}
+                type="cats"
+                handlePetAdopted={this.handlePetAdopted}
+                userChange={this.props.userChange}
+              />
+              <Pet
+                pet={this.props.pets.dog}
+                user={this.props.user}
+                people={this.props.people}
+                type="dogs"
+                handlePetAdopted={this.handlePetAdopted}
+                userChange={this.props.userChange}
+              />
             </section>
           )}
         </main>
