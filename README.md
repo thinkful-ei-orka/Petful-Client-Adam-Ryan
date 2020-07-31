@@ -6,6 +6,10 @@ URL - https://tranquil-retreat-20194.herokuapp.com/
 Client: github - https://github.com/thinkful-ei-orka/Petful-Client-Adam-Ryan.git
 URL - https://petful-six.vercel.app/
 
+Pair: Adam Brown and Ryan Vargas
+
+Tech Used: JavaScript, React, Node, Express
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
