@@ -34,7 +34,7 @@ export default function Pet(props) {
           className="AdoptionButton"
           type="button"
           onClick={() => {
-            props.handlePetAdopted(props.type)
+            props.handlePetAdopted(props.type, true)
             props.userChange("")
           }}
         >
