@@ -1,6 +1,6 @@
 const ApiService = {
   async handlePetAdopted(type) {
-    return await fetch(`http://localhost:8000/pets`, {
+    return await fetch(`https://tranquil-retreat-20194.herokuapp.com/pets`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
@@ -17,7 +17,7 @@ const ApiService = {
   },
 
   async handleAddUser(user) {
-    return await fetch(`http://localhost:8000/people`, {
+    return await fetch(`https://tranquil-retreat-20194.herokuapp.com/people`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -32,7 +32,7 @@ const ApiService = {
   },
 
   async handleRemoveUser() {
-    return await fetch(`http://localhost:8000/people`, {
+    return await fetch(`https://tranquil-retreat-20194.herokuapp.com/people`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",

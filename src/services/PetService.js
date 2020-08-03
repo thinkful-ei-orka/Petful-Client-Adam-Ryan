@@ -1,7 +1,7 @@
 const PetService = {
   async get() {
     let promise = await fetch(
-      `http://localhost:8000/pets`
+      `https://tranquil-retreat-20194.herokuapp.com/pets`
     )
       .then((res) => res.json())
       .catch((error) => console.log(error));
