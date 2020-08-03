@@ -11,7 +11,7 @@ export default class AdoptionPage extends React.Component {
     this.handlePetAdopted = this.handlePetAdopted.bind(this);
     this.state = {
       adopted: false,
-      adoptedPet: {}
+      adoptedPet: {},
     };
   }
   componentDidMount() {
@@ -26,19 +26,28 @@ export default class AdoptionPage extends React.Component {
     this.props.getState();
     if (user) {
       this.setState({ adoptedPet: adoptedPet, adopted: true });
-      setTimeout(() => this.setState({ adoptedPet: {}, adopted: false }), 10000);
+      setTimeout(
+        () => this.setState({ adoptedPet: {}, adopted: false }),
+        10000
+      );
     }
   }
 
   demoExtension(count = 0) {
-    const people = ['Aaron A Aaronson', 'Betty Buckingham', 'Charlie Cook', 'Delila Dirk', 'Erin Engleburt'];
+    const people = [
+      "Aaron A Aaronson",
+      "Betty Buckingham",
+      "Charlie Cook",
+      "Delila Dirk",
+      "Erin Engleburt",
+    ];
     if (count < 5) {
       setTimeout(async () => {
         await this.addToQueue(people[count]);
-        await this.demoExtension(count += 1);
+        await this.demoExtension((count += 1));
       }, 5000);
     }
-  };
+  }
 
   demoFunction = () => {
     if (
@@ -83,8 +92,8 @@ export default class AdoptionPage extends React.Component {
             <AdoptionQueue people={this.props.people} />
             {(this.props.people === undefined ||
               this.props.user !==
-              this.props.people[this.props.people.length - 1]) &&
-              this.props.user !== this.props.people[0] ?
+                this.props.people[this.props.people.length - 1]) &&
+            this.props.user !== this.props.people[0] ? (
               <AddToList
                 user={this.props.user}
                 userChange={this.props.userChange}
@@ -92,7 +101,7 @@ export default class AdoptionPage extends React.Component {
                 people={this.props.people}
                 demoFunction={this.demoFunction}
               />
-              : null}
+            ) : null}
           </section>
           {this.state.adopted ? (
             <section className="AdoptionPageAdopted">
@@ -104,25 +113,25 @@ export default class AdoptionPage extends React.Component {
               />
             </section>
           ) : (
-              <section className="AdoptionPagePrimary">
-                <Pet
-                  pet={this.props.pets.cat}
-                  user={this.props.user}
-                  people={this.props.people}
-                  type="cats"
-                  handlePetAdopted={this.handlePetAdopted}
-                  userChange={this.props.userChange}
-                />
-                <Pet
-                  pet={this.props.pets.dog}
-                  user={this.props.user}
-                  people={this.props.people}
-                  type="dogs"
-                  handlePetAdopted={this.handlePetAdopted}
-                  userChange={this.props.userChange}
-                />
-              </section>
-            )}
+            <section className="AdoptionPagePrimary">
+              <Pet
+                pet={this.props.pets.cat}
+                user={this.props.user}
+                people={this.props.people}
+                type="cats"
+                handlePetAdopted={this.handlePetAdopted}
+                userChange={this.props.userChange}
+              />
+              <Pet
+                pet={this.props.pets.dog}
+                user={this.props.user}
+                people={this.props.people}
+                type="dogs"
+                handlePetAdopted={this.handlePetAdopted}
+                userChange={this.props.userChange}
+              />
+            </section>
+          )}
         </main>
       </div>
     );
