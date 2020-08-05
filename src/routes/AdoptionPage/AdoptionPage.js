@@ -68,7 +68,7 @@ export default class AdoptionPage extends React.Component {
       name: name,
     };
     const userString = JSON.stringify(newUser);
-    fetch(`https://stormy-sands-28982.herokuapp.com//people`, {
+    fetch(`https://stormy-sands-28982.herokuapp.com/people`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

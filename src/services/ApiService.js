@@ -1,6 +1,6 @@
 const ApiService = {
   async handlePetAdopted(type) {
-    return await fetch(`https://stormy-sands-28982.herokuapp.com//pets`, {
+    return await fetch(`https://stormy-sands-28982.herokuapp.com/pets`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
@@ -17,7 +17,7 @@ const ApiService = {
   },
 
   async handleAddUser(user) {
-    return await fetch(`https://stormy-sands-28982.herokuapp.com//people`, {
+    return await fetch(`https://stormy-sands-28982.herokuapp.com/people`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -32,7 +32,7 @@ const ApiService = {
   },
 
   async handleRemoveUser() {
-    return await fetch(`https://stormy-sands-28982.herokuapp.com//people`, {
+    return await fetch(`https://stormy-sands-28982.herokuapp.com/people`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
