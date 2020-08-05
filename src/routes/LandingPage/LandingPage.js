@@ -17,13 +17,13 @@ export default function LandingPage(props) {
         <p>
           Here at PetGrab we feel that a true pet parent should be less
           concerned with the breed of your pet than the experiences that pet
-          gives you. We also stronly believe that every family, big or small,
+          gives you. We also strongly believe that every family, big or small,
           deserves a pet that enriches their lives.
         </p>
         <p>
           Each one of our pets are hand-picked from local kill-shelters and
           placed here on our platform. The fast turnaround time allow for less
-          stress on the animals, saves them from unecessary death, and
+          stress on the animals, saves them from unncessary death, and
           facilitates an efficient way for us to help improve both the lives of
           these unfortunate animals and you!
         </p>
