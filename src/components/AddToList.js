@@ -17,6 +17,7 @@ export default function AdoptionQueue(props) {
         onChange={(e) => {
           props.userChange(e.target.value);
         }}
+        required
       />
       <button className="QueueButton" type="submit">
         Join the adoption queue!
