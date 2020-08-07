@@ -1,7 +1,7 @@
 const PeopleService = {
   async get() {
     let promise = await fetch(
-      `https://stormy-sands-28982.herokuapp.com/people`
+      `https://floating-wildwood-68556.herokuapp.com//people`
     )
       .then((res) => res.json())
       .catch((error) => console.log(error));
